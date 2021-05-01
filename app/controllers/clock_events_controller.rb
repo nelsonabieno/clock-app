@@ -1,0 +1,2 @@
+class ClockEventsController < ApplicationController
+end
