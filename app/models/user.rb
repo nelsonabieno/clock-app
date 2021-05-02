@@ -5,5 +5,6 @@ class User < ApplicationRecord
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :password, presence: true
-  validates :email, presence: true, unique: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
+  validates :password, confirmation: { case_sensitive: true }
+  validates :email, presence: true, uniqueness: true, format: {with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address"}
 end
