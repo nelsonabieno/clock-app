@@ -12,3 +12,11 @@
  *
  */
 @import "bootstrap";
+
+.form-container {
+  width: fit-content;
+  margin-top: 50px;
+  margin-left: 400px;
+  position: absolute;
+  justify-content: center !important;
+}
