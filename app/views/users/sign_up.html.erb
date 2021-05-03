@@ -23,6 +23,8 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, class: "form-control" %> <br />
 
+      <%= f.label :time_zone, "Select Preferred Time Zone" %> <br />
+      <%= time_zone_select :time_zone,  ActiveSupport::TimeZone.all %> <br />
       <%= f.submit "Create account", class: "btn btn-primary" %>
   <% end %>
   <br>

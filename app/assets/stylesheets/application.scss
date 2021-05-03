@@ -16,9 +16,14 @@
 .form-container {
   width: fit-content;
   margin-top: 50px;
-  margin-left: 400px;
+  margin-left: 350px;
   position: absolute;
   justify-content: center !important;
+}
+
+.home-container {
+  text-align: center;
+  margin-top: 150px;
 }
 
 .right {
@@ -28,4 +33,10 @@
 .logout-btn {
   margin-left: 50px;
   color: white !important;
+}
+
+body {
+  background-image: url('light-clock.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
