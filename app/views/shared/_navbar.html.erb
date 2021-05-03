@@ -6,15 +6,15 @@
           <%= link_to "Home", root_path, class: "nav-link active"%>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 right">
         <% if Current.user %>
             <li class="nav-item">
-              <span class="navbar-text">
-                Logged in as <%= Current.user.email %>
+              <span class="navbar-text text-info">
+                Logged in as <strong> <%= Current.user.email %> </strong>
               </span>
             </li>
-            <li class="nav-item">
-              <%= button_to "Logout", logout_path, method: :delete, class:"nav-link btn btn-outline-secondary" %>
+            <li class="nav-item logout-btn">
+              <%= button_to "Logout", logout_path, method: :delete, class:"btn btn-danger" %>
             </li>
         <% else%>
             <li class="nav-item">

@@ -1,0 +1,63 @@
+<br/>
+<% if session[:last_clock]== "in" %>
+    <%= link_to "Clock Out", '#', class: "btn btn-danger btn-lg btn-block", :data => {:toggle => "modal", :target => "#reasonModal"} %>
+<% end %>
+
+<% if session[:last_clock].nil? || session[:last_clock]== "out" %>
+    <%= link_to "Clock In", clock_in_path, class: "btn btn-success btn-lg btn-block", method: :post %>
+<% end %>
+
+<% if @user_events.count == 0 %>
+    <p> You do not have any Clock event yet, please clock in</p>
+<% else %>
+    <br/>
+    <br/>
+    <br/>
+    <h3> Showing time entries for user <%= Current.user.firstname %></h3>
+    <br/>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Clock In Time </th>
+          <th scope="col">Clock Out Time</th>
+          <th scope="col">Reason for Clocking Out</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_events.each do |event| %>
+          <tr>
+            <td><%= event.clock_in %></td>
+            <td><%= event.clock_out %></td>
+            <td><%= event.reason %></td>
+            <td><%= link_to "Update", class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<% end %>
+
+<div class="modal fade" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reasonModalLabel">Reason for Clocking Out</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_tag "/clock_out", :method =>"post", :name => "reasonform" do %>
+        <div class="modal-body">
+          <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="reason">
+            </textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type="submit" class="btn btn-primary"/>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

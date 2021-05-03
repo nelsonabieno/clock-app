@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.present? && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Successfully Logged In"
+      redirect_to clock_events_path, notice: "Successfully Logged In"
     else
       flash[:alert]= "Invalid username or password"
       render :login
