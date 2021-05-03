@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def logout
+    if session[:user_id]
+      session[:user_id] = nil
+      redirect_to root_path, notice: "Logged Out"
+    end
+  end
+
   def create
     @user = User.new(user_params)
 
