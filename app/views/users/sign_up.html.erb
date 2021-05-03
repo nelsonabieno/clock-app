@@ -24,9 +24,9 @@
       <%= f.password_field :password_confirmation, class: "form-control" %> <br />
 
       <%= f.label :time_zone, "Select Preferred Time Zone" %> <br />
-      <%= time_zone_select :time_zone,  ActiveSupport::TimeZone.all %> <br />
+      <%= time_zone_select :time_zone,  ActiveSupport::TimeZone.all %> <br />  <br />
       <%= f.submit "Create account", class: "btn btn-primary" %>
   <% end %>
   <br>
-  Already have an account? <%= link_to "Login", login_path %>
+  Already have an account? <strong><%= link_to "Login", login_path %></strong>
 </div>

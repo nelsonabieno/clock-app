@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   delete "logout", to: "users#logout"
   get "/sign_up" => "users#sign_up"
   get "/clock_events" => "clock_events#index"
+  get "/clock_event/:id/edit" => "clock_events#edit"
+  put "/clock_event/:id/update" => "clock_events#update"
   post "/sign_up" => "users#create"
   post "/clock_in" => "clock_events#clock_in"
   post "/clock_out" => "clock_events#clock_out"

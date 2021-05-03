@@ -30,7 +30,9 @@
             <td><%= event.clock_in %></td>
             <td><%= event.clock_out %></td>
             <td><%= event.reason %></td>
-            <td><%= link_to "Update", class: "btn btn-primary" %></td>
+            <td>
+              <a class= "btn btn-info", href="/clock_event/<%=event.id%>/edit"> Edit </a>
+            </td>
           </tr>
         <% end %>
       </tbody>
